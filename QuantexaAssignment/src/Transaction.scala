@@ -22,7 +22,7 @@ object Transaction {
     var curr = 1
     var total = 0.00
     for (a <- transactions) {
-      if (a.equals(transactions.last)) println("Day: " + curr + " Total: " + total)
+      if (a.equals(transactions.last)) println("Day: " + curr + " Total: " + (total+a.transactionAmount))
       else if (a.transactionDay == curr) total += a.transactionAmount
       else {
         println("Day: " + curr + " Total: " + total)
