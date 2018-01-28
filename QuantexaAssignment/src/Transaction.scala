@@ -31,5 +31,14 @@ object Transaction {
       }
     }
   }
+  
+  def totalPerAccount {
+  val result = transactions.groupBy(t => t.accountId)
+  val pricePerType=result.mapValues(x => x.map(y=>(y.category,y.transactionAmount)))
+  val averagePerType=pricePerType.mapValues(x => x.groupBy(y=>y._1))
+  //TODO FOR EACH VALUE IN MAP, CALCULATE AVERAGES OF ELEMENTS_2 IN LIST
+  println(pricePerType.head);
+  println(averagePerType.head);
+  }
 
 }
